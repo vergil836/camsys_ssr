@@ -28,6 +28,7 @@ while True:
         if cmd =="shoot":
                 cap = cv2.VideoCapture(0)
                 frame = cap.read()[1]
+                cap.release()
                 frame_enc = frame[:,:,0].tostring()
                 print("开始发送")
                 #发送时间

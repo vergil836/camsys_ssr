@@ -3,6 +3,7 @@ import os
 import hashlib
 import cv2
 import numpy
+from time import sleep
 
 client = socket.socket()
 
@@ -16,10 +17,13 @@ if not os.path.exists("photo"):
     os.mkdir("photo")
 while True:
     
-    #手动挡
+    #手动挡,输入shoot拍摄
     #cmd = input(">>")
+    #interval = 0
+    
     #自动档
     cmd = "shoot"
+    interval = 1
 
     if len(cmd)==0: continue
     else:
@@ -77,5 +81,7 @@ while True:
         #解码
         frame=numpy.frombuffer(frame_bytes,dtype=numpy.uint8).reshape(frame_raw_num,frame_column_num)
         cv2.imwrite("photo/%s.png"%img_time,frame)
+
+        sleep(interval)
 
 client.close()
