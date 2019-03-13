@@ -1,7 +1,6 @@
 import socket
 import time
 import hashlib
-import camera
 import cv2
 import numpy
 
